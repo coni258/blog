@@ -1,0 +1,16 @@
+h1 =@article.title 
+/titulo del articulo que seleccionamos
+
+p =@article.body
+/cuerpo del articulo que seleccionamos
+
+ul 
+  
+  li = link_to "Edit", edit_article_path(@article)
+  li = link_to "Destroy", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+/lo que muestra cuando clickeamos en un articulo (editarlo o eliminarlo)
+h2 Comments
+= render @article.comments
+
+h2 Add a comment:
+= render 'comments/form'

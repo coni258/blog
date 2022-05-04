@@ -1,0 +1,19 @@
+/menu principal 
+
+h1 Articles
+| Our blog has #{Article.public_count} articles and count
+
+/unless: metodo para evitar mostrar cualquier articulo que este archivado
+ul
+  /muestra todos los articulos
+  - @articles.each do |article|
+    - unless article.archived?
+      li
+        =link_to article.title, article 
+      /Link hacia a algun articulo seleccionado
+
+= link_to "New Article", new_article_path 
+/ Link para crear un nuevo articulo
+
+
+
